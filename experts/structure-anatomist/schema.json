@@ -1,0 +1,42 @@
+{
+  "state_key": "target",
+  "domain": "structure-anatomist",
+  "title": "结构解剖专家决策题型",
+  "questions": {
+    "artifact_kind": {
+      "type": "choice",
+      "instructions": "待逆向目标属于哪一大类？",
+      "criteria": {
+        "code": "源码仓库/工程/代码片段",
+        "binary": "编译产物/二进制/固件/安装包",
+        "data": "数据文件/数据库/序列化数据",
+        "protocol": "网络协议/接口报文/数据流",
+        "product_ui": "产品界面/交互/视觉稿",
+        "workflow": "业务流程/规则/组织流程",
+        "other": "以上都不符合"
+      }
+    },
+    "has_manifest": {
+      "type": "noul",
+      "instructions": "是否存在可直接定位结构的锚点（清单文件/入口点/表头/魔数/目录约定）？"
+    },
+    "boundary_clarity": {
+      "type": "score",
+      "instructions": "组成部分之间的边界清晰程度？",
+      "criteria": [
+        "完全混沌，看不出任何组成分区",
+        "能看出大致分区，但边界模糊",
+        "能列出多数部件，个别边界存疑",
+        "部件边界清晰且均可命名"
+      ]
+    },
+    "decomposable": {
+      "type": "noul",
+      "instructions": "能否分解为有限个可命名的部件？"
+    },
+    "evidence_gap": {
+      "type": "noul",
+      "instructions": "结构判断缺乏直接证据、主要靠推测？命中即证据不足闸门，禁止写入结论。"
+    }
+  }
+}

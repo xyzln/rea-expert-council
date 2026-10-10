@@ -1,0 +1,37 @@
+{
+  "state_key": "conclusion",
+  "domain": "evidence-audit",
+  "title": "结论反幻觉审计题型（产出报告前自检）",
+  "questions": {
+    "traceable": {
+      "type": "noul",
+      "instructions": "每条结论是否都能追溯到具体观测（字节/源码行/运行输出）？"
+    },
+    "has_unlabeled_speculation": {
+      "type": "noul",
+      "instructions": "是否存在未标注的推测内容被混进了结论？命中即证据不足闸门。"
+    },
+    "single_sample_risk": {
+      "type": "noul",
+      "instructions": "字段或行为结论是否仅基于单个样本得出？命中即证据不足闸门。"
+    },
+    "narrative_risk": {
+      "type": "noul",
+      "instructions": "是否存在「编故事」风险（把合理想象包装成设计意图）？命中即证据不足闸门。"
+    },
+    "boundary_honesty": {
+      "type": "score",
+      "instructions": "对「还原不了的部分」的诚实程度？",
+      "criteria": [
+        "用猜测填补了空白",
+        "含糊带过未明说",
+        "明确列出未知项",
+        "未知项含影响面与获取方式"
+      ]
+    },
+    "reproducible": {
+      "type": "noul",
+      "instructions": "他人能否按报告给出的步骤复现这些结论？"
+    }
+  }
+}

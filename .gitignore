@@ -1,0 +1,15 @@
+# 构建产物
+rea-expert-council-skillhub.zip
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+
+# 本地审计日志
+.cache/

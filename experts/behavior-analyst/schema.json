@@ -1,0 +1,39 @@
+{
+  "state_key": "target",
+  "domain": "behavior-analyst",
+  "title": "行为动态专家决策题型",
+  "questions": {
+    "observable": {
+      "type": "choice",
+      "instructions": "目标的行为可被观测到什么程度？",
+      "criteria": {
+        "runnable_observable": "可直接运行并观察输入输出",
+        "static_inferable": "不能运行，但静态可推断行为",
+        "needs_external_input": "需外部输入/环境才能触发行为",
+        "unobservable": "完全无法观测行为"
+      }
+    },
+    "statefulness": {
+      "type": "score",
+      "instructions": "目标的状态复杂度？",
+      "criteria": [
+        "无状态：纯输入到输出的映射",
+        "弱状态：少量上下文/配置",
+        "中等：有会话或生命周期",
+        "复杂：显式状态机/多阶段流水线"
+      ]
+    },
+    "deterministic": {
+      "type": "noul",
+      "instructions": "行为是否确定（相同输入产生相同输出）？"
+    },
+    "side_effects": {
+      "type": "noul",
+      "instructions": "是否存在外部副作用（读写文件/网络/进程/数据库）？"
+    },
+    "needs_dynamic_probe": {
+      "type": "noul",
+      "instructions": "是否必须动态探针（实际运行/插桩/抓包）才能确认行为？命中即证据不足闸门。"
+    }
+  }
+}

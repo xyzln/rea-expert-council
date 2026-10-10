@@ -1,0 +1,39 @@
+{
+  "state_key": "target",
+  "domain": "rebuild-planner",
+  "title": "重建与复刻规划专家决策题型",
+  "questions": {
+    "fidelity_target": {
+      "type": "choice",
+      "instructions": "本次复刻应达到的保真度目标？",
+      "criteria": {
+        "behavioral_parity": "行为等价：同输入输出同副作用",
+        "functional_equivalent": "功能等价：外部行为一致，实现可不同",
+        "inspired_reimplementation": "受启发重写：取思路，不追求一致",
+        "doc_only": "仅产出规格说明，不实现"
+      }
+    },
+    "spec_completeness": {
+      "type": "score",
+      "instructions": "现有证据对规格的支撑完整度？",
+      "criteria": [
+        "仅有模糊描述",
+        "能写出主要流程",
+        "能写清接口与数据结构，细节存疑",
+        "接口/数据/异常/边界均可钉死"
+      ]
+    },
+    "interface_pinnable": {
+      "type": "noul",
+      "instructions": "对外接口/契约能否被完整钉死（签名、类型、错误码、时序）？"
+    },
+    "testable": {
+      "type": "noul",
+      "instructions": "能否写出验收测试来证明「复刻一致」？"
+    },
+    "blocking_unknowns": {
+      "type": "noul",
+      "instructions": "是否存在阻断性未知（缺了就无法复刻）？命中即证据不足闸门。"
+    }
+  }
+}

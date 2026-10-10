@@ -1,0 +1,39 @@
+{
+  "state_key": "target",
+  "domain": "intent-reconstructor",
+  "title": "意图与设计还原专家决策题型",
+  "questions": {
+    "purpose_clarity": {
+      "type": "choice",
+      "instructions": "目标的用途定位清晰度？",
+      "criteria": {
+        "single_purpose": "明确的单一用途",
+        "platform": "多用途平台/框架",
+        "internal_tool": "内部工具/一次性脚本",
+        "unclear": "无法判断"
+      }
+    },
+    "constraint_signals": {
+      "type": "score",
+      "instructions": "能观测到的设计约束信号有多少？",
+      "criteria": [
+        "完全看不到约束痕迹",
+        "有零星线索（如注释或配置项）",
+        "能识别部分约束（性能/兼容/成本之一）",
+        "约束清晰且可相互印证"
+      ]
+    },
+    "tradeoff_identifiable": {
+      "type": "noul",
+      "instructions": "能否识别出明确的设计取舍（为了 A 放弃 B）？"
+    },
+    "why_inferable": {
+      "type": "noul",
+      "instructions": "能否回答「为什么这样设计」而不只是「它是什么」？"
+    },
+    "narrative_risk": {
+      "type": "noul",
+      "instructions": "是否存在编故事风险（把推测包装成设计意图）？命中即证据不足闸门。"
+    }
+  }
+}

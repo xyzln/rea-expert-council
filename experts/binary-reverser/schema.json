@@ -1,0 +1,41 @@
+{
+  "state_key": "target",
+  "domain": "binary-reverser",
+  "title": "二进制与代码逆向专家决策题型",
+  "questions": {
+    "representation": {
+      "type": "choice",
+      "instructions": "目标的表示形态？",
+      "criteria": {
+        "source": "可读源码",
+        "bytecode": "字节码/中间码（class/dex/pycil/wasm）",
+        "native": "原生机器码（ELF/PE/Mach-O）",
+        "minified": "压缩/混淆过的脚本（无符号）",
+        "packed_obfuscated": "加壳/强混淆/自解密",
+        "unknown": "无法判断"
+      }
+    },
+    "symbol_rich": {
+      "type": "noul",
+      "instructions": "是否保留符号表/可读标识符/调试信息？"
+    },
+    "obfuscation_level": {
+      "type": "score",
+      "instructions": "混淆或对抗强度？",
+      "criteria": [
+        "无混淆，符号完整",
+        "轻度：名称混淆/压缩",
+        "中度：控制流平坦化/字符串加密",
+        "重度：加壳/自修改/反调试/虚拟化"
+      ]
+    },
+    "recoverable": {
+      "type": "noul",
+      "instructions": "控制流与核心逻辑能否还原到可解释、可复述的程度？"
+    },
+    "legal_or_safety_risk": {
+      "type": "noul",
+      "instructions": "是否涉及授权/许可/恶意代码/安全合规风险？命中即人工闸门，停止自动推进。"
+    }
+  }
+}

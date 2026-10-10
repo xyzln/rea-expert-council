@@ -1,0 +1,48 @@
+{
+  "state_key": "target",
+  "domain": "artifact-triage",
+  "title": "目标初步分诊题型（路由前通用）",
+  "questions": {
+    "target_kind": {
+      "type": "choice",
+      "instructions": "待逆向目标属于哪一大类？",
+      "criteria": {
+        "file": "单个文件或产物",
+        "directory": "目录/仓库/工程",
+        "network": "网络流量/接口/报文",
+        "running_system": "可运行的程序或服务",
+        "product": "产品功能/界面/交互",
+        "process": "业务流程/规则/组织机制",
+        "other": "以上都不符合"
+      }
+    },
+    "access_level": {
+      "type": "score",
+      "instructions": "对目标的可观测程度？",
+      "criteria": [
+        "只有描述或截图",
+        "能看到部分产物（如单个文件）",
+        "能拿到完整产物但不能运行",
+        "能完整运行并任意观测"
+      ]
+    },
+    "has_authorization": {
+      "type": "noul",
+      "instructions": "是否明确拥有或有授权分析该目标？回答 false 即触发人工闸门。"
+    },
+    "legal_or_safety_risk": {
+      "type": "noul",
+      "instructions": "是否涉及许可限制、第三方权利、恶意代码或安全合规风险？命中即人工闸门。"
+    },
+    "effort_estimate": {
+      "type": "score",
+      "instructions": "预计逆向所需投入？",
+      "criteria": [
+        "分钟级：有现成文档或自描述结构",
+        "小时级：需静态分析即可理清",
+        "天级：需动态调试或多轮取证",
+        "不可行：存在加密/无授权等硬阻断"
+      ]
+    }
+  }
+}

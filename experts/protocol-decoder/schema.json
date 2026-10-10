@@ -1,0 +1,42 @@
+{
+  "state_key": "target",
+  "domain": "protocol-decoder",
+  "title": "协议与数据格式专家决策题型",
+  "questions": {
+    "format_class": {
+      "type": "choice",
+      "instructions": "数据/报文组织形式属于哪类？",
+      "criteria": {
+        "text_kv": "文本键值/分隔符文本（如 HTTP 头、CSV）",
+        "json_like": "自描述结构化文本（JSON/XML/YAML）",
+        "tlv": "标签-长度-值 结构",
+        "fixed_binary": "定长二进制记录",
+        "custom_binary": "自定义紧凑二进制（位域/变长编码）",
+        "stream": "流式/分帧流媒体或长连接帧",
+        "unknown": "无法判断"
+      }
+    },
+    "self_describing": {
+      "type": "noul",
+      "instructions": "格式是否自描述（含字段名/长度/类型标记）？"
+    },
+    "field_semantics_confidence": {
+      "type": "score",
+      "instructions": "字段语义可判定的程度？",
+      "criteria": [
+        "完全未知，只有字节",
+        "能定边界，语义不明",
+        "多数字段语义可判定",
+        "全部字段语义可判定且有交叉验证"
+      ]
+    },
+    "has_crypto_or_checksum": {
+      "type": "noul",
+      "instructions": "是否含加密/签名/校验和（会阻断字段解读）？"
+    },
+    "speculation_risk": {
+      "type": "noul",
+      "instructions": "字段含义是否主要靠猜测而非证据？命中即证据不足闸门。"
+    }
+  }
+}
